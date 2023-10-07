@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react';
-import fetchPokemons from '../services/apiService';
-import { PokemonListResult } from '../types/pokemon';
+import { usePokemon } from '../hooks/usePokemon';
 
 const PokemonList = () => {
-  const [pokemons, setPokemons] = useState<PokemonListResult[]>([]);
+  const { data, isLoading, error } = usePokemon();
 
-  useEffect(() => {
-    const getPokemons = async () => {
-      const data = await fetchPokemons();
-      setPokemons(data.results);
-    };
-
-    getPokemons();
-  }, []);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error has occurred: {error.message}</div>;
 
   return (
     <div>
-      {pokemons.map((pokemon) => (
+      {data?.results.map((pokemon) => (
         <div key={pokemon.name}>{pokemon.name}</div>
       ))}
     </div>
