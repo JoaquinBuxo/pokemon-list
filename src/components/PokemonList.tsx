@@ -1,6 +1,7 @@
 import { usePokemon } from '../hooks/usePokemon';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { PokemonList, PokemonListResult } from '../types/pokemon';
+import PokemonItem from './PokemonItem';
 
 const PokemonList = () => {
   const { data, isLoading, error, fetchNextPage, hasNextPage } = usePokemon();
@@ -23,13 +24,7 @@ const PokemonList = () => {
       loader={<h4>Loading...</h4>}
     >
       {pokemons?.map((pokemon: PokemonListResult) => (
-        <div key={pokemon.name}>
-          <img
-            src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
-            alt={pokemon.name}
-          />
-          {pokemon.name}
-        </div>
+        <PokemonItem key={pokemon.name} pokemon={pokemon} />
       ))}
     </InfiniteScroll>
   );
