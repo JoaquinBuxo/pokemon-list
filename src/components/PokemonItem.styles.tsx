@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const StyledPokemonItem = styled.div`
+export const LinkPokemonItem = styled(Link)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,6 +16,7 @@ export const StyledPokemonItem = styled.div`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease;
   cursor: pointer;
+  color: black;
 
   img {
     margin-bottom: 1rem;
@@ -29,5 +31,6 @@ export const StyledPokemonItem = styled.div`
 
   &:hover {
     background-color: #e0e0e0;
+    color: black;
   }
 `;
