@@ -1,6 +1,7 @@
 import { usePokemon } from '../hooks/usePokemon';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { PokemonList, PokemonListResult } from '../types/pokemon';
+import { PokemonGrid } from './PokemonList.styles';
 import PokemonItem from './PokemonItem';
 
 const PokemonList = () => {
@@ -23,9 +24,11 @@ const PokemonList = () => {
       hasMore={!!hasNextPage}
       loader={<h4>Loading...</h4>}
     >
-      {pokemons?.map((pokemon: PokemonListResult) => (
-        <PokemonItem key={pokemon.name} pokemon={pokemon} />
-      ))}
+      <PokemonGrid>
+        {pokemons?.map((pokemon: PokemonListResult) => (
+          <PokemonItem key={pokemon.name} pokemon={pokemon} />
+        ))}
+      </PokemonGrid>
     </InfiniteScroll>
   );
 };
