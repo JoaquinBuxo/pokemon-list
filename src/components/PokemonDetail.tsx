@@ -33,7 +33,14 @@ const PokemonDetail = () => {
   }
 
   if (error) {
-    return <div>An error occurred: {error.message}</div>;
+    return (
+      <div>
+        An error occurred: {error.message}
+        <br />
+        It's likely that the Pokémon {pokemonName} does not exist or we do not
+        have data about it.
+      </div>
+    );
   }
 
   if (!pokemon) {

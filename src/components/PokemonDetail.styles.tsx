@@ -6,7 +6,7 @@ export const PokemonCard = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   text-align: left;
