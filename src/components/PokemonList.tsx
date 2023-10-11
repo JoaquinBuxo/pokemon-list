@@ -5,6 +5,7 @@ import { PokemonList, PokemonListResult } from '../types/pokemon';
 import { PokemonGrid } from './PokemonList.styles';
 import PokemonItem from './PokemonItem';
 import SearchBar from './SearchBar';
+import Header from './Header';
 
 const PokemonList = () => {
   const { data, isLoading, error, fetchNextPage, hasNextPage } = usePokemon();
@@ -26,6 +27,7 @@ const PokemonList = () => {
 
   return (
     <>
+      <Header numPokemon={pokemons?.length || 0} />
       <SearchBar onSearch={setSearch} />
       <InfiniteScroll
         dataLength={data?.pages.length || 0}
