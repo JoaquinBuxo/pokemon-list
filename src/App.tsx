@@ -6,9 +6,13 @@ import {
   RouterProvider,
   Navigate,
 } from 'react-router-dom';
+
+import { FavoritesPokemonProvider } from './context/FavoritesPokemonContext';
+
 import RootLayout from './layouts/RootLayout';
 import PokemonList from './components/PokemonList';
 import PokemonDetail from './components/PokemonDetail';
+import PokemonFavorites from './components/PokemonFavorites';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -19,7 +23,9 @@ const router = createBrowserRouter(
       <Route path='/pokemon' element={<RootLayout />}>
         <Route index element={<PokemonList />} />
         <Route path=':pokemonName' element={<PokemonDetail />} />
+        <Route path='favorites' element={<PokemonFavorites />} />
       </Route>
+
       <Route path='*' element={<Navigate to='/pokemon' replace />} />
     </>
   )
@@ -28,7 +34,9 @@ const router = createBrowserRouter(
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <FavoritesPokemonProvider>
+        <RouterProvider router={router} />
+      </FavoritesPokemonProvider>
     </QueryClientProvider>
   );
 }

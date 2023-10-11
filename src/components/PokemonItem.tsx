@@ -1,13 +1,28 @@
-import { PokemonListResult } from '../types/pokemon';
-import { LinkPokemonItem } from './PokemonItem.styles';
+import {
+  FavoriteButton,
+  LinkPokemonItem,
+  PokemonCard,
+} from './PokemonItem.styles';
+import { usePokemonFavorites } from '../hooks/usePokemonFavorites';
 
-const PokemonItem: React.FC<{ pokemon: PokemonListResult }> = ({ pokemon }) => {
-  const imageUrl = `https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`;
+interface PokemonItemProps {
+  pokemonName: string;
+}
+
+const PokemonItem: React.FC<PokemonItemProps> = ({ pokemonName }) => {
+  const { favorites, toggleFavorite } = usePokemonFavorites();
+  const imageUrl = `https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemonName}.gif`;
+
   return (
-    <LinkPokemonItem to={`/pokemon/${pokemon.name}`}>
-      <img src={imageUrl} alt={pokemon.name} />
-      <p className='pokemon-name'>{pokemon.name}</p>
-    </LinkPokemonItem>
+    <PokemonCard>
+      <FavoriteButton onClick={() => toggleFavorite(pokemonName)}>
+        {favorites?.includes(pokemonName) ? '❤️' : '🤍'}
+      </FavoriteButton>
+      <LinkPokemonItem to={`/pokemon/${pokemonName}`}>
+        <img src={imageUrl} alt={pokemonName} />
+        <p className='pokemon-name'>{pokemonName}</p>
+      </LinkPokemonItem>
+    </PokemonCard>
   );
 };
 

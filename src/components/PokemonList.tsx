@@ -37,7 +37,7 @@ const PokemonList = () => {
       >
         <PokemonGrid>
           {filteredPokemons?.map((pokemon: PokemonListResult) => (
-            <PokemonItem key={pokemon.name} pokemon={pokemon} />
+            <PokemonItem key={pokemon.name} pokemonName={pokemon.name} />
           ))}
         </PokemonGrid>
       </InfiniteScroll>

@@ -9,7 +9,7 @@ export const LinkPokemonItem = styled(Link)`
   align-items: center;
   padding: 2rem;
   height: 225px;
-  width: 250px;
+  min-width: 250px;
   box-sizing: border-box;
   border: 1px solid black;
   border-radius: 5px;
@@ -33,4 +33,27 @@ export const LinkPokemonItem = styled(Link)`
     background-color: #e0e0e0;
     color: black;
   }
+`;
+
+export const FavoriteButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  width: 70px;
+  padding: 15px;
+
+  &:hover,
+  &:focus {
+    border: none;
+    outline: none;
+  }
+`;
+
+export const PokemonCard = styled.div`
+  position: relative;
 `;
