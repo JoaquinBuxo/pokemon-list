@@ -1,27 +1,41 @@
-# React + TypeScript + Vite
+# Pokemon List with React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div>
+  <p align="center">
+    <img src="public/pokemon-list.png" width="800" alt="Catalogue">
+  </p>
+</div>
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In the image, we can see the expected result of the app when it is correctly installed. The image showcases the user interface of the app, displaying various components and interactions.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+- npm
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository:
+
+   ```sh
+     git clone git@github.com:JoaquinBuxo/pokemon-list.git
+   ```
+
+2. Install dependencies:
+
+- catalogue : `cd pokemon-list`
+
+  ```sh
+  npm install
+  ```
+
+3. Setup and start the app:
+
+   ```sh
+   npm run dev
+   ```
+
+Open [http://localhost:5173/pokemon](http://localhost:5173/pokemon) with your browser to see the result.
